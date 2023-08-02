@@ -1,2 +1,2 @@
 #!/bin/bash
-0 string SCHOOL
+echo 0 strig SCHOOL
