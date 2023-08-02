@@ -1,2 +1,2 @@
 #!/bin/bash
-file_info=$(file  -b "/tmp/iamafile"); echo "/tmp/iamafile: $file_info"
+file_info=$(file  -b "/tmp/iamafile") & echo "/tmp/iamafile: $file_info"
