@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -p | sort -d -f -t '/' -k 2
+ls -p | sort -d -f -t '/' -k 2 | tr '\n' ','
