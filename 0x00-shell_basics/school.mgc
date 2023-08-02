@@ -1,1 +1,2 @@
-0 string SCHOOL data file
+#!/bin/bash
+echo 0 string SCHOOL data file
