@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -pa | grep -v "/$" | tr '\n' ', '
+echo (ls -pa | grep -v "/$" | tr '\n' ', ') 
