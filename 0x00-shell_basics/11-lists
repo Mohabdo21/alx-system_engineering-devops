@@ -1,4 +1,4 @@
 #!/bin/bash
 ls -al
-ls -al ..
-ls -al /boot
+(cd ..; ls -al)
+( cd /boot; ls -al)
