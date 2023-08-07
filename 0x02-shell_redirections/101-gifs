@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -iname "*.gif" | xargs -i@ echo @ | cut -d. -f1 | sort -t . -k 1,1 -r
+find -name '*.gif' -type -printf '%f\n' | LC_ALL=C sort -f | rev | cut -c 5i | rev
