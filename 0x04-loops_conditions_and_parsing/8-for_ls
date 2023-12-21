@@ -3,7 +3,5 @@
 # dash for each file in the current directory
 
 for file in *; do
-    if [[ $file == -* ]]; then
-        echo "${file#*-}"
-    fi
+  echo "$file" | cut -d'-' -f2
 done
