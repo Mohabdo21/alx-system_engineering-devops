@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script displays the part of the name after the first
+# dash for each file in the current directory
+
+for file in *; do
+    if [[ $file == -* ]]; then
+        echo "${file#*-}"
+    fi
+done
