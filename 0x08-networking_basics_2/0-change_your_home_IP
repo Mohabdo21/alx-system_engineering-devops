@@ -1,9 +1,21 @@
 #!/usr/bin/env bash
 # This script modifies /etc/hosts to set localhost to 127.0.0.2 and facebook.com to 8.8.8.8
 
-# Use sed to replace the line containing localhost with the desired IP
-sudo sed -i 's/^127.0.0.1 localhost$/127.0.0.2 localhost/' /etc/hosts
+# Create a temporary file
+tempfile=$(mktemp)
 
-# Append the line for facebook.com to /etc/hosts
-echo '8.8.8.8 facebook.com' | sudo tee -a /etc/hosts > /dev/null
+# Copy the contents of /etc/hosts to the temporary file
+cat /etc/hosts > "$tempfile"
+
+# Use sed to replace the line containing localhost with the desired IP
+sed -i 's/^127.0.0.1 localhost$/127.0.0.2 localhost/' "$tempfile"
+
+# Append the line for facebook.com to the temporary file
+echo '8.8.8.8 facebook.com' >> "$tempfile"
+
+# Copy the temporary file back to /etc/hosts
+cp "$tempfile" /etc/hosts
+
+# Remove the temporary file
+rm "$tempfile"
 
