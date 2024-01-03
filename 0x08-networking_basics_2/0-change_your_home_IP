@@ -8,7 +8,7 @@ tempfile=$(mktemp)
 cat /etc/hosts > "$tempfile"
 
 # Use sed to replace the line containing localhost with the desired IP
-sed -i 's/^127.0.0.1 localhost$/127.0.0.2 localhost/' "$tempfile"
+sed -i 's/^127.0.0.1.*localhost/127.0.0.2 localhost/' "$tempfile"
 
 # Append the line for facebook.com to the temporary file
 echo '8.8.8.8 facebook.com' >> "$tempfile"
