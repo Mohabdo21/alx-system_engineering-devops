@@ -6,10 +6,10 @@ This project is part of the Alx - SE curriculum of software engineering. The mai
 Learning Objectives
 -------------------
 
--   Understand the basics of regular expressions.
--   Learn what regular expressions are and how to use them.
--   Understand when we need to use regular expressions.
--   Learn how to correctly implement a regular expression.
--   Understand the purpose of matching patterns with regular expressions.
--   Learn how to create complex pattern matching using advanced regular expression techniques.
--   Understand when we need to implement a clean-up action after using regular expressions.
+- Understand the basics of regular expressions.
+- Learn what regular expressions are and how to use them.
+- Understand when we need to use regular expressions.
+- Learn how to correctly implement a regular expression.
+- Understand the purpose of matching patterns with regular expressions.
+- Learn how to create complex pattern matching using advanced regular expression techniques.
+- Understand when we need to implement a clean-up action after using regular expressions.
