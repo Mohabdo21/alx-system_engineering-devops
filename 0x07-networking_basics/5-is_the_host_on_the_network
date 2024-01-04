@@ -3,16 +3,16 @@
 
 # Check if an argument was passed
 if [ "$#" -ne 1 ]; then
-    echo "Usage: $(basename $0) {IP_ADDRESS}"
+    echo "Usage: $(basename "$0") {IP_ADDRESS}"
     exit 1
 fi
 
-IP_ADDRESS=$1
+IP_ADDRESS="$1"
 
 # Check the validity of the IP address using a regex
 if [[ $IP_ADDRESS =~ ^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$ ]]; then
     # Ping the IP address 5 times
-    ping -c 5 $IP_ADDRESS
+    ping -c 5 "$IP_ADDRESS"
 else
     echo "Invalid IP address"
     exit 1
