@@ -22,4 +22,4 @@ Project to be done by:
 
 ## More Info
 
-This project is designed to give a practical understanding of how web infrastructure works and how various components interact with each other. By the end of this project, you should be able to design and implement robust and secure web infrastructure.
+This project is designed to give a practical understanding of how web infrastructure works and how various components interact with each other. By the end of this project, we will be able to design and implement robust and secure web infrastructure.
