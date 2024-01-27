@@ -1,3 +1,5 @@
+[Add More Security](https://i.imgur.com/t00ALOR.png)
+
 **1. Firewalls:**
 The incorporation of a firewall for each server significantly enhances the security of the system.
 Firewalls meticulously control the inflow and outflow of network traffic based on an established set of security rules,
@@ -17,7 +19,6 @@ thereby ensuring the smooth and efficient operation of the servers.
 To monitor the web server's Queries Per Second (QPS), one can utilize a monitoring tool such as
 Sumologic or Datadog. These tools collect data from the server logs, providing valuable insights
 into the web server's performance.
-
 
 ## Potential Issues with This Infrastructure:
 

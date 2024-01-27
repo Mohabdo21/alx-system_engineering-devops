@@ -1,3 +1,5 @@
+[First Infrastructure](https://i.imgur.com/FURoOD9.png)
+
 **1. Server:**
 A server is a robust computing device engineered to manage, store, send and process data 24/7.
 It forms the backbone of network resources, offering a centralized system for data storage and application hosting.
@@ -25,7 +27,6 @@ and manages data required by the application server to generate dynamic web cont
 **7. Communication:**
 The server communicates with the user's computer using the HTTP/HTTPS protocol, which is a set of rules for
 transferring files (text, graphic images, sound, video, and other multimedia files) on the World Wide Web.
-
 
 ## Potential Issues with This Infrastructure:
 

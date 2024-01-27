@@ -1,3 +1,5 @@
+[Udgrading with another server + load Balancer](https://i.imgur.com/OHVeiq1.png)
+
 **1. Additional Servers:**
 Incorporating two additional servers into the infrastructure facilitates load distribution and mitigates
 the risk of a single point of failure (SPOF).
@@ -28,7 +30,6 @@ of read and write operations.
 The primary node is capable of handling both read and write operations,
 while the replica node is restricted to read operations. This allows the primary node to concentrate
 on processing write operations without being impeded by read requests.
-
 
 ## Potential Issues with This Infrastructure:
 
