@@ -1,33 +1,43 @@
 **1. Server:**
-A server is a powerful computer that provides a centralized location for data storage and application hosting.
+A server is a robust computing device engineered to manage, store, send and process data 24/7.
+It forms the backbone of network resources, offering a centralized system for data storage and application hosting.
 
 **2. Domain Name:**
-The domain name (foobar.com) serves as the unique identifier or address for the website on the internet.
+The domain name, in this case, foobar.com, serves as the unique digital address of your website on the internet.
+It allows users to access your website without needing to remember the IP address.
 
 **3. DNS Record:**
-The 'www' in 'www.foobar.com' is a type of DNS record known as a CNAME (Canonical Name), which is used to alias one name to another.
-This gives the CDN the opportunity to supply an IP address that is close to the browser (in geographic or network terms).
+The 'www' in 'www.foobar.com' is a type of DNS record known as a CNAME (Canonical Name).
+It is essentially an alias used to redirect multiple domain names to a single IP address.
 
 **4. Web Server (Nginx):**
-The web server (Nginx) processes user requests and serves web pages to the user's browser.
+The web server, Nginx in this scenario, is responsible for accepting and processing requests from the
+user's browser. It serves static content to the client and acts as a reverse proxy for dynamic content generation.
 
 **5. Application Server:**
-The application server hosts the business logic for web applications and generates dynamic content based on user requests.
+The application server is the heart of your web infrastructure. It hosts the business logic of the web applications,
+processing requests from the web server, interacting with the database, and generating dynamic web content.
 
 **6. Database (MySQL):**
-The database (MySQL) stores and manages data that the application server needs to generate dynamic content.
+The MySQL database is a relational database management system that stores, retrieves,
+and manages data required by the application server to generate dynamic web content.
 
 **7. Communication:**
-The server communicates with the user's computer using the HTTP/HTTPS protocol.
+The server communicates with the user's computer using the HTTP/HTTPS protocol, which is a set of rules for
+transferring files (text, graphic images, sound, video, and other multimedia files) on the World Wide Web.
 
 
-## The potential issues with this infrastructure:
+## Potential Issues with This Infrastructure:
 
 **1. Single Point of Failure (SPOF):**
-Since everything is hosted on a single server, if that server goes down, the entire website becomes unavailable.
+With all components hosted on a single server, any failure in the server hardware or software
+would render the entire website unavailable, leading to a significant service disruption.
 
 **2. Downtime for Maintenance:**
-When new code is deployed or the web server needs to be restarted, the website will be temporarily unavailable.
+Maintenance activities, such as deploying new code or restarting the web server,
+would necessitate some downtime, making the website temporarily inaccessible to users.
 
-**3. Scalability:**
-If the website receives too much traffic, a single server may not be able to handle the load, leading to performance issues or downtime.
+**3. Scalability Concerns:**
+A single server may not be equipped to handle a surge in traffic, leading to potential performance
+degradation or even downtime.
+This infrastructure lacks the flexibility to scale resources up or down based on demand.
