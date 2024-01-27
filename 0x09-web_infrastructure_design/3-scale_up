@@ -1,13 +1,17 @@
-1. **Additional Server:**
-Incorporating an additional server into the infrastructure can enhance system performance and reliability
-by distributing the load across multiple servers. This also reduces the risk of a single point of failure (SPOF),
-thereby increasing system resilience.
+**1. Additional Server:**
+The integration of an additional server into the infrastructure significantly enhances system performance
+and reliability. This strategy effectively distributes the load across multiple servers, thereby reducing
+the risk of a single point of failure (SPOF) and bolstering system resilience.
 
-2. **Load Balancer (HAproxy) Cluster:**
-Configuring an additional HAproxy in a cluster with the existing one provides high availability and failover support.
-In the event of a failure of one load balancer, the other can seamlessly take over, ensuring uninterrupted service availability.
+**2. Load Balancer (HAproxy) Cluster:**
+The configuration of an additional HAproxy in a cluster with the existing one ensures high availability
+and failover support. In the event of a failure of one load balancer, the other can seamlessly assume control,
+guaranteeing uninterrupted service availability.
 
-3. **Split Components:**
-Segregating the web server, application server, and database onto their own dedicated servers can optimize system performance
-and simplify management. Each server can be fine-tuned for its specific task, leading to more efficient resource utilization.
-Moreover, this separation allows for easier isolation and resolution of issues, enhancing system maintainability.
+**3. Component Segregation:**
+The segregation of the web server, application server, and database onto their own dedicated servers
+optimizes system performance and simplifies management.
+Each server can be fine-tuned for its specific task, leading to more efficient resource utilization.
+Furthermore, this separation facilitates easier isolation and resolution of issues, thereby enhancing
+system maintainability. This approach ensures that each component is optimized for its specific role,
+leading to improved overall system performance.
