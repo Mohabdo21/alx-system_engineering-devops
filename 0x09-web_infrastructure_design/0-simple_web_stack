@@ -6,6 +6,7 @@ The domain name (foobar.com) serves as the unique identifier or address for the 
 
 **3. DNS Record:**
 The 'www' in 'www.foobar.com' is a type of DNS record known as a CNAME (Canonical Name), which is used to alias one name to another.
+This gives the CDN the opportunity to supply an IP address that is close to the browser (in geographic or network terms).
 
 **4. Web Server (Nginx):**
 The web server (Nginx) processes user requests and serves web pages to the user's browser.
