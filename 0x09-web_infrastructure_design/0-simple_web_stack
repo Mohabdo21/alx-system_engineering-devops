@@ -1,0 +1,32 @@
+**1. Server:**
+A server is a powerful computer that provides a centralized location for data storage and application hosting.
+
+**2. Domain Name:**
+The domain name (foobar.com) serves as the unique identifier or address for the website on the internet.
+
+**3. DNS Record:**
+The 'www' in 'www.foobar.com' is a type of DNS record known as a CNAME (Canonical Name), which is used to alias one name to another.
+
+**4. Web Server (Nginx):**
+The web server (Nginx) processes user requests and serves web pages to the user's browser.
+
+**5. Application Server:**
+The application server hosts the business logic for web applications and generates dynamic content based on user requests.
+
+**6. Database (MySQL):**
+The database (MySQL) stores and manages data that the application server needs to generate dynamic content.
+
+**7. Communication:**
+The server communicates with the user's computer using the HTTP/HTTPS protocol.
+
+
+## The potential issues with this infrastructure:
+
+**1. Single Point of Failure (SPOF):**
+Since everything is hosted on a single server, if that server goes down, the entire website becomes unavailable.
+
+**2. Downtime for Maintenance:**
+When new code is deployed or the web server needs to be restarted, the website will be temporarily unavailable.
+
+**3. Scalability:**
+If the website receives too much traffic, a single server may not be able to handle the load, leading to performance issues or downtime.

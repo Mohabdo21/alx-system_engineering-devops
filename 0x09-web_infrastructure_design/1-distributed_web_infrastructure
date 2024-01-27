@@ -1,0 +1,38 @@
+**1. Additional Servers:**
+Adding two more servers to the infrastructure helps distribute the load and reduce the risk of a single point of failure (SPOF).
+This enhances the system's ability to handle increased traffic and provides redundancy in case one server fails.
+
+**2. Load Balancer (HAproxy):**
+The load balancer's role is to distribute incoming traffic across multiple servers to ensure no single server becomes overwhelmed.
+This helps optimize resource use, reduce response time, and increase the reliability of applications.
+
+**3. Distribution Algorithm:**
+The load balancer could use a round-robin algorithm, which distributes requests sequentially to servers in a circular order.
+This method ensures that all servers share the load equally.
+
+**4. Active-Active vs Active-Passive Setup:**
+In an active-active setup, all servers are handling traffic, providing maximum resource utilization.
+In an active-passive setup, one server is active and the others are on standby, providing a backup in case the active server fails.
+
+**5. Database Primary-Replica Cluster:**
+In a primary-replica setup, the primary node handles write operations and the replica nodes handle read operations.
+This separation of duties can enhance performance by allowing read and write operations to be processed concurrently.
+
+**6. Primary Node vs Replica Node:**
+The primary node can handle both read and write operations, while the replica node only handles read operations.
+This allows the primary node to focus on processing write operations without being slowed down by read requests.
+
+
+## The potential issues with this infrastructure:
+
+**1. Single Point of Failure (SPOF):**
+Even with multiple servers, there could still be SPOFs. For example, if the load balancer goes down,
+the entire system could become unavailable.
+
+**2. Security Issues:**
+Without a firewall or HTTPS, the system is vulnerable to attacks. Proper security measures should be implemented
+to protect the system and its data.
+
+**3. No Monitoring:**
+Without monitoring, it's hard to identify and fix issues promptly. Monitoring tools can provide valuable insights
+into system performance and help detect problems before they affect users.

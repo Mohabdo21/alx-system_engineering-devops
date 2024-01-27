@@ -1,0 +1,30 @@
+**1. Firewalls:**
+Adding a firewall to each server enhances the security of the system. Firewalls control the incoming and outgoing
+network traffic based on predetermined security rules, allowing only authorized traffic and blocking potential threats.
+
+**2. SSL Certificate:**
+Implementing an SSL certificate enables the server to serve traffic over HTTPS. This protocol encrypts the data transmitted
+between the user's browser and the server, ensuring that sensitive information is securely transmitted.
+
+**3. Monitoring Clients:**
+Adding monitoring clients to each server allows for the collection and analysis of data about the server's performance.
+This aids in the identification of any issues or bottlenecks, ensuring the smooth operation of the servers.
+
+**4. Monitoring Web Server QPS:**
+If we want to monitor your web server's Queries Per Second (QPS), we can use a monitoring tool like Sumologic or Datadog.
+These tools collect data from the server logs and can provide insights into the web server's performance.
+
+
+## The potential issues with this infrastructure:
+
+**1. Terminating SSL at the Load Balancer:**
+If SSL is terminated at the load balancer, the traffic between the load balancer and the servers is not encrypted.
+This could potentially expose sensitive data if the internal network is compromised.
+
+**2. Single MySQL Server for Writes:**
+Having only one MySQL server capable of accepting writes is a potential bottleneck. If that server goes down or gets overwhelmed,
+the entire system can be affected.
+
+**3. Same Components on All Servers:**
+Having the same components (database, web server, and application server) on all servers can lead to inefficient resource utilization.
+It's more efficient to have separate servers for separate tasks.
