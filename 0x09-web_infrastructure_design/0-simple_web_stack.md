@@ -1,4 +1,4 @@
-[First Infrastructure](https://i.imgur.com/FURoOD9.png)
+![First Infrastructure](https://i.imgur.com/FURoOD9.png)
 
 **1. Server:**
 A server is a robust computing device engineered to manage, store, send and process data 24/7.
