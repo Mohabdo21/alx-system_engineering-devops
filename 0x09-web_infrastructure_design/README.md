@@ -18,7 +18,7 @@ By: Sylvain Kalache, co-founder at Holberton School
 
 ## Tasks:
 
-### first infratructure:
+### First infratructure:
 
 First infratructure consists of simple webserver(Nginx), application server to manage dynamic contents, Mysql server and.
 refere to task [0-simple_web_stack](https://github.com/Mohabdo21/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/0-simple_web_stack.md) for more info.
@@ -31,7 +31,7 @@ Here we have leveled up the our infratructure a little by adding anohter server/
 
 We added an additonal layers of security represented in SSL/TLS certificate and firewalls between for each server and added data collectors for  _Sumologic_  monitoring service. Refer to to task [2-secured_and_monitored_web_infrastructure](https://github.com/Mohabdo21/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/2-secured_and_monitored_web_infrastructure.md) for more.
 
-### Fourht infratructure:
+### Fourth infratructure:
 
 In this stage we scaled-up the infrastructure by improving the availability of our server through adding another load balancer and additional server. for more refer to [3-scal_up](https://github.com/Mohabdo21/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/3-scale_up.md).
 
@@ -40,5 +40,5 @@ In this stage we scaled-up the infrastructure by improving the availability of o
 This project is designed to give a practical understanding of how web infrastructure works and how various components interact with each other. By the end of this project, we will be able to design and implement robust and secure web infrastructure.
 
 # Authors:
-_Abdallah Abdelrahman_ - abdallah_alkaser@outlook.com
+_Abdallah Abdelrahman_ - abdallah_alkaser@outlook.com <br />
 _Mohannad Abdulaziz_ - mohannadabdo21@hotmail.com
