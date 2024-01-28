@@ -1,4 +1,6 @@
-[Add More Security](https://i.imgur.com/t00ALOR.png)
+# 2-secured_and_monitored_web_infrastructure:
+
+![Add More Security](https://i.imgur.com/t00ALOR.png)
 
 **1. Firewalls:**
 The incorporation of a firewall for each server significantly enhances the security of the system.

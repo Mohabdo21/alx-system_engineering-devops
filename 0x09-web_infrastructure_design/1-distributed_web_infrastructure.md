@@ -1,4 +1,6 @@
-[Udgrading with another server + load Balancer](https://i.imgur.com/OHVeiq1.png)
+# 1-distributed_web_infrastructure:
+
+![Udgrading with another server + load Balancer](https://i.imgur.com/OHVeiq1.png)
 
 **1. Additional Servers:**
 Incorporating two additional servers into the infrastructure facilitates load distribution and mitigates

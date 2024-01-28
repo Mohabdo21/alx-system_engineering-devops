@@ -1,4 +1,6 @@
-[Level Up Availability](https://i.imgur.com/ZfGdjUA.png)
+# 3-scale_up:
+
+![Level Up Availability](https://i.imgur.com/ZfGdjUA.png)
 
 **1. Additional Server:**
 The integration of an additional server into the infrastructure significantly enhances system performance

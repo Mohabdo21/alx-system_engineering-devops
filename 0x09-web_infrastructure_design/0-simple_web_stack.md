@@ -1,3 +1,5 @@
+# 0-simple_web_stack:
+
 ![First Infrastructure](https://i.imgur.com/FURoOD9.png)
 
 **1. Server:**
