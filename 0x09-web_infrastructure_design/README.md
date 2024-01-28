@@ -39,6 +39,6 @@ In this stage we scaled-up the infrastructure by improving the availability of o
 
 This project is designed to give a practical understanding of how web infrastructure works and how various components interact with each other. By the end of this project, we will be able to design and implement robust and secure web infrastructure.
 
-# Authors:
+## Authors:
 _Abdallah Abdelrahman_ - abdallah_alkaser@outlook.com <br />
 _Mohannad Abdulaziz_ - mohannadabdo21@hotmail.com
