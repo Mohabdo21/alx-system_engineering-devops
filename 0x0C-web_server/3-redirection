@@ -22,5 +22,8 @@ echo "server {
 # Enable the new configuration file
 ln -s /etc/nginx/sites-available/redirect /etc/nginx/sites-enabled/
 
+# Termnate all port80 connections
+fuser -k 80/tcp
+
 # Restart nginx
 service nginx restart
