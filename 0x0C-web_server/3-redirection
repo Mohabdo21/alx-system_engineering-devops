@@ -8,7 +8,7 @@ apt-get update
 apt-get install -y nginx
 
 # Remove the default nginx configuration file
-rm /etc/nginx/sites-enabled/default
+echo 'Hello World!' | tee /var/www/html/index.nginx-debian.html > /dev/null
 
 # Create a new configuration file with a redirection
 echo "server {
