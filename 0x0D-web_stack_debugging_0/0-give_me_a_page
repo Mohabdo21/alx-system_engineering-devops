@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Make sure the apache2 server is running
+
+# Check the status of the Apache2 server
+service apache2 status > /dev/null 2>&1
+
+if ! service apache2 status > /dev/null 2>&1; then
+    echo "Apache2 server is not running. Starting the server..."
+    sudo service apache2 start
+    echo "Apache2 server started successfully."
+else
+    echo "Apache2 server is running."
+fi
