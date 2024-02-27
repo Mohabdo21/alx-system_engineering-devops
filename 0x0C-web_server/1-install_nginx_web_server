@@ -12,7 +12,8 @@ apt-get install -y nginx
 echo "server {
     listen 80 default_server;
     listen [::]:80 default_server;
-    location / {
+	root /var/www/html;
+	location / {
         add_header Content-Type text/plain;
     }
 }" > /etc/nginx/sites-available/default
