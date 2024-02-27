@@ -7,21 +7,19 @@ apt-get update
 # Install nginx
 apt-get install -y nginx
 
-# Remove the default nginx configuration file
-rm /etc/nginx/sites-enabled/default
 
 # Create a new configuration file
 echo "server {
     listen 80 default_server;
     listen [::]:80 default_server;
     location / {
-        try_files \$uri \$uri/ =404;
         add_header Content-Type text/plain;
     }
-}" > /etc/nginx/sites-available/hello
+}" > /etc/nginx/sites-available/default
 
+echo "Hello World!" > /var/www/html/index.htm
 # Enable the new configuration file
-ln -s /etc/nginx/sites-available/hello /etc/nginx/sites-enabled/
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 
 # Restart nginx
 service nginx restart
