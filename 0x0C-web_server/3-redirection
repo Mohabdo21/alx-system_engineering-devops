@@ -14,17 +14,17 @@ ufw allow 'Nginx HTTP'
 echo 'Hello World!' > /var/www/html/index.nginx-debian.html
 
 # Create a new configuration file with a redirection
-echo "server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-    location /redirect_me {
-        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
-    }
-}" > /etc/nginx/sites-available/redirect
+#echo "server {
+#    listen 80 default_server;
+#    listen [::]:80 default_server;
+#    location /redirect_me {
+#        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+#    }
+#}" > /etc/nginx/sites-available/redirect
 
 # Enable the new configuration file
-ln -s /etc/nginx/sites-available/redirect /etc/nginx/sites-enabled/
-
+#ln -s /etc/nginx/sites-available/redirect /etc/nginx/sites-enabled/
+sed -i '/listen 80 default_server;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
 # Termnate all port80 connections
 fuser -k 80/tcp
 
