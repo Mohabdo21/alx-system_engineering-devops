@@ -8,9 +8,8 @@ apt-get update
 apt-get install -y nginx
 
 # Remove the default nginx configuration file
-# rm /etc/nginx/sites-enabled/default
+rm /etc/nginx/sites-enabled/default
 
-echo "Hello World!" > /var/www/html/index.html
 
 # Create a new configuration file with a redirection
 echo "server {
