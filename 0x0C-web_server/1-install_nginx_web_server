@@ -15,7 +15,7 @@ echo "server {
 	root /var/www/html;
 	index index.html
 	location / {
-        return /var/www/html/index.html;
+        return 200 'Hello World!';
 		add_header Content-Type text/plain;
     }
 }" > /etc/nginx/sites-available/default
