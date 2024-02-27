@@ -14,6 +14,7 @@ echo "server {
     listen [::]:80 default_server;
 	root /var/www/html;
 	index index.html
+	server_name _;
 	location / {
         add_header Content-Type text/plain;
     }
