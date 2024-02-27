@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script installs nginx on the server and configures it to display 'Hello World!', redirect '/redirect_me', and show a custom 404 page
+# This script installs nginx, configures it to listen on port 80, sets up a default page, adds a redirection, and a custom 404 page
 
 # Update the package lists for upgrades and new package installations
 apt-get update
@@ -7,32 +7,37 @@ apt-get update
 # Install nginx
 apt-get install -y nginx
 
-# Remove the default nginx configuration file
+# Remove the default nginx configuration
 rm /etc/nginx/sites-enabled/default
 
-# Create a new configuration file
+# Create a new default nginx configuration
 echo "server {
     listen 80 default_server;
     listen [::]:80 default_server;
+    root /var/www/html;
+    index index.html;
+    server_name _;
     location / {
-        return 200 'Hello World!';
-        add_header Content-Type text/plain;
+        try_files \$uri \$uri/ =404;
     }
     location /redirect_me {
         return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
     }
-    error_page 404 /custom_404.html;
-    location = /custom_404.html {
+    error_page 404 /404.html;
+    location = /404.html {
         root /var/www/html;
         internal;
     }
-}" > /etc/nginx/sites-available/hello
+}" > /etc/nginx/sites-available/default
 
-# Create the custom 404 page
-echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
+# Enable the new configuration
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 
-# Enable the new configuration file
-ln -s /etc/nginx/sites-available/hello /etc/nginx/sites-enabled/
+# Create a new index.html file
+echo "Hello World!" > /var/www/html/index.html
+
+# Create a new 404.html file
+echo "Ceci n'est pas une page" > /var/www/html/404.html
 
 # Restart nginx
 service nginx restart
