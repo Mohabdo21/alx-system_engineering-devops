@@ -1,42 +1,24 @@
 #!/usr/bin/env bash
 
 # Install software-properties-common
-sudo apt-get install --no-install-recommends software-properties-common
+# sudo apt-get install --no-install-recommends software-properties-common
 
 # Add the HAProxy PPA
-sudo add-apt-repository -y ppa:vbernat/haproxy-2.8
+# sudo add-apt-repository -y ppa:vbernat/haproxy-2.8
 
 # Update the package list and install the specific version of HAProxy
-sudo apt-get -y update
-sudo apt-get -y install haproxy=2.8.\*
+apt-get -y update
+apt-get -y install haproxy -y
 
 # Enable HAProxy to be started by the init script
-echo "ENABLED=1" | sudo -a tee /etc/default/haproxy
-sudo systemctl enable haproxy
+echo "ENABLED=1" | tee -a /etc/default/haproxy
+systemctl enable haproxy
 
 # Define the HAProxy configuration
 CONFIG="
-global
-    log /dev/log local0
-    log /dev/log local1 notice
-    chroot /var/lib/haproxy
-    stats socket /run/haproxy/admin.sock mode 660 level admin
-    stats timeout 30s
-    user haproxy
-    group haproxy
-    daemon
-
-defaults
-    log global
-    mode http
-    option httplog
-    option dontlognull
-    timeout connect 5000
-    timeout client 50000
-    timeout server 50000
-
 frontend http_front
     bind *:80
+	mode http
     default_backend http_back
 
 backend http_back
@@ -46,7 +28,7 @@ backend http_back
 "
 
 # Write the configuration
-echo "$CONFIG" | sudo tee -a /etc/haproxy/haproxy.cfg
+echo "$CONFIG" | tee -a /etc/haproxy/haproxy.cfg
 
 # Restart HAProxy to apply the changes
-sudo service haproxy restart
+service haproxy restart
