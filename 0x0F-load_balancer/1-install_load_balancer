@@ -34,8 +34,8 @@ frontend http_front
 
 backend http_back
     balance roundrobin
-    server web-01 34.234.193.86:80 check
-    server web-02 54.90.40.86:80 check
+    server 514039-web-01 34.234.193.86:80 check
+    server 514039-web-02 54.90.40.86:80 check
 "
 
 # Write the configuration
