@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+# This script configures a new Ubuntu machine with Nginx and some custom settings
+
+# Update the package list and install Nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+# Define the custom response header
+HOST_NAME=$(hostname)
+HEADER="\\\n\tadd_header X-Served-By $HOST_NAME;\n"
+
+# Check if the custom header already exists in the Nginx configuration
+FIND=$(sudo grep "X-Served-By" /etc/nginx/sites-available/default)
+
+# If the custom header doesn't exist, add it to the Nginx configuration
+if [[ -z $FIND ]]; then
+    sudo sed -i "23i $HEADER" /etc/nginx/sites-available/default
+fi
+
+# Check if the /var/www/ directory exists and create it if it doesn't
+if [[ ! -d "/var/www/" ]]; then
+    sudo mkdir -p /var/www/
+fi
+
+# Create a simple index.html page
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+# Define the redirection rule
+REDIRECT="\\\n\tlocation /redirect_me {\n\t\t return 301 https://www.youtube.com/watch?v=3MbaGJN2ioQ;\n\t}\n"
+
+# Check if the redirection rule already exists in the Nginx configuration
+FIND=$(sudo grep "redirect_me" /etc/nginx/sites-available/default)
+
+# If the redirection rule doesn't exist, add it to the Nginx configuration
+if [[ -z $FIND ]]; then
+    sudo sed -i "42i $REDIRECT" /etc/nginx/sites-available/default
+fi
+
+# Define the custom 404 error page
+ERROR_PAGE="\\\n\terror_page 404 /custom_404.html;\n"
+ERROR_MSG="Ceci n'est pas une page"
+
+# Check if the custom 404 error page already exists in the Nginx configuration
+FIND=$(sudo grep "error_page 404" /etc/nginx/sites-available/default)
+
+# If the custom 404 error page doesn't exist, create it and add it to the Nginx configuration
+if [[ -z $FIND ]]; then
+    echo "$ERROR_MSG" | sudo tee /var/www/html/custom_404.html
+    sudo sed -i "40i $ERROR_PAGE" /etc/nginx/sites-available/default
+fi
+
+# Restart the Nginx service to apply the changes
+sudo service nginx restart
