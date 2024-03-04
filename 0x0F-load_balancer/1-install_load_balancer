@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 
-# Update the package list and install HAProxy
+# Install software-properties-common
+sudo apt-get install --no-install-recommends software-properties-common
+
+# Add the HAProxy PPA
+sudo add-apt-repository -y ppa:vbernat/haproxy-2.8
+
+# Update the package list and install the specific version of HAProxy
 sudo apt-get -y update
-sudo apt-get -y install haproxy
+sudo apt-get -y install haproxy=2.8.\*
 
 # Enable HAProxy to be started by the init script
 sudo systemctl enable haproxy
