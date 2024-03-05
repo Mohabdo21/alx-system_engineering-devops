@@ -8,31 +8,30 @@ sudo apt-get update
 sudo apt-get -y install nginx
 
 # Allow Nginx HTTP traffic through the firewall
-sudo ufw allow 'Nginx HTTP'
+# sudo ufw allow 'Nginx HTTP'
 
 # Define the content for the index page
-INDEX_PAGE_CONTENT="Hello World!"
-echo "$INDEX_PAGE_CONTENT" > /var/www/html/index.html
+#INDEX_PAGE_CONTENT="Hello World!"
+#echo "$INDEX_PAGE_CONTENT" > /var/www/html/index.html
 
 # Define the content for the 404 error page
-ERROR_PAGE_CONTENT="Ceci n'est pas une page"
-echo "$ERROR_PAGE_CONTENT" > /var/www/html/404.html
+#ERROR_PAGE_CONTENT="Ceci n'est pas une page"
+#echo "$ERROR_PAGE_CONTENT" > /var/www/html/404.html
 
 # Configure Nginx to redirect a specific path to a YouTube video
-REDIRECT_PATH="/redirect_me"
-YOUTUBE_URL="https://www.youtube.com/watch?v=QH2-TGUlwu4"
-sudo sed -i "/listen 80 default_server/a rewrite ^$REDIRECT_PATH $YOUTUBE_URL permanent;" /etc/nginx/sites-available/default
+#REDIRECT_PATH="/redirect_me"
+#YOUTUBE_URL="https://www.youtube.com/watch?v=QH2-TGUlwu4"
+#sudo sed -i "/listen 80 default_server/a rewrite ^$REDIRECT_PATH $YOUTUBE_URL permanent;" /etc/nginx/sites-available/default
 
 # Configure Nginx to use a custom 404 error page
-sudo sed -i "/listen 80 default_server/a \\terror_page 404 /404.html;" /etc/nginx/sites-available/default
+#sudo sed -i "/listen 80 default_server/a \\terror_page 404 /404.html;" /etc/nginx/sites-available/default
 
 # Add a custom header to the Nginx server configuration
-HEADER_NAME="X-Served-By"
-HEADER_VALUE="$HOSTNAME"
-sudo sed -i "/listen 80 default_server/a add_header $HEADER_NAME '$HEADER_VALUE';" /etc/nginx/sites-available/default
+HEADER="add_header X-Served-By $(hostname);"
+sed -i "/server {/ a $HEADER" /etc/nginx/sites-enabled/default
 
 # Reload the Nginx configuration to apply the changes
-sudo service nginx reload
+# sudo service nginx reload
 
 # Start the Nginx service
 sudo service nginx start
