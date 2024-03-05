@@ -12,11 +12,11 @@ sudo ufw allow 'Nginx HTTP'
 
 # Define the content for the index page
 INDEX_PAGE_CONTENT="Hello World!"
-echo $INDEX_PAGE_CONTENT > /var/www/html/index.html
+echo "$INDEX_PAGE_CONTENT" > /var/www/html/index.html
 
 # Define the content for the 404 error page
 ERROR_PAGE_CONTENT="Ceci n'est pas une page"
-echo $ERROR_PAGE_CONTENT > /var/www/html/404.html
+echo "$ERROR_PAGE_CONTENT" > /var/www/html/404.html
 
 # Configure Nginx to redirect a specific path to a YouTube video
 REDIRECT_PATH="/redirect_me"
@@ -28,7 +28,7 @@ sudo sed -i "/listen 80 default_server/a \\terror_page 404 /404.html;" /etc/ngin
 
 # Add a custom header to the Nginx server configuration
 HEADER_NAME="X-Served-By"
-HEADER_VALUE='$HOSTNAME'
+HEADER_VALUE="$HOSTNAME"
 sudo sed -i "/listen 80 default_server/a add_header $HEADER_NAME '$HEADER_VALUE';" /etc/nginx/sites-available/default
 
 # Reload the Nginx configuration to apply the changes
