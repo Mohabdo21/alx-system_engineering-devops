@@ -1,53 +1,38 @@
 #!/usr/bin/env bash
-# This script configures a new Ubuntu machine with Nginx and some custom settings
+# This script installs and configures an Nginx server
 
-# Update the package list and install Nginx
-sudo apt-get -y update
+# Update the package lists for upgrades and new package installations
+sudo apt-get update
+
+# Install Nginx
 sudo apt-get -y install nginx
 
-# Define the custom response header
-HOST_NAME=$(hostname)
-HEADER="\\\n\tadd_header X-Served-By $HOST_NAME;\n"
+# Allow Nginx HTTP traffic through the firewall
+sudo ufw allow 'Nginx HTTP'
 
-# Check if the custom header already exists in the Nginx configuration
-FIND=$(sudo grep "X-Served-By" /etc/nginx/sites-available/default)
+# Define the content for the index page
+INDEX_PAGE_CONTENT="Hello World!"
+echo $INDEX_PAGE_CONTENT > /var/www/html/index.html
 
-# If the custom header doesn't exist, add it to the Nginx configuration
-if [[ -z $FIND ]]; then
-    sudo sed -i "23i $HEADER" /etc/nginx/sites-available/default
-fi
+# Define the content for the 404 error page
+ERROR_PAGE_CONTENT="Ceci n'est pas une page"
+echo $ERROR_PAGE_CONTENT > /var/www/html/404.html
 
-# Check if the /var/www/ directory exists and create it if it doesn't
-if [[ ! -d "/var/www/" ]]; then
-    sudo mkdir -p /var/www/
-fi
+# Configure Nginx to redirect a specific path to a YouTube video
+REDIRECT_PATH="/redirect_me"
+YOUTUBE_URL="https://www.youtube.com/watch?v=QH2-TGUlwu4"
+sudo sed -i "/listen 80 default_server/a rewrite ^$REDIRECT_PATH $YOUTUBE_URL permanent;" /etc/nginx/sites-available/default
 
-# Create a simple index.html page
-echo "Hello World!" | sudo tee /var/www/html/index.html
+# Configure Nginx to use a custom 404 error page
+sudo sed -i "/listen 80 default_server/a \\terror_page 404 /404.html;" /etc/nginx/sites-available/default
 
-# Define the redirection rule
-REDIRECT="\\\n\tlocation /redirect_me {\n\t\t return 301 https://www.youtube.com/watch?v=3MbaGJN2ioQ;\n\t}\n"
+# Add a custom header to the Nginx server configuration
+HEADER_NAME="X-Served-By"
+HEADER_VALUE='$HOSTNAME'
+sudo sed -i "/listen 80 default_server/a add_header $HEADER_NAME '$HEADER_VALUE';" /etc/nginx/sites-available/default
 
-# Check if the redirection rule already exists in the Nginx configuration
-FIND=$(sudo grep "redirect_me" /etc/nginx/sites-available/default)
+# Reload the Nginx configuration to apply the changes
+sudo service nginx reload
 
-# If the redirection rule doesn't exist, add it to the Nginx configuration
-if [[ -z $FIND ]]; then
-    sudo sed -i "42i $REDIRECT" /etc/nginx/sites-available/default
-fi
-
-# Define the custom 404 error page
-ERROR_PAGE="\\\n\terror_page 404 /custom_404.html;\n"
-ERROR_MSG="Ceci n'est pas une page"
-
-# Check if the custom 404 error page already exists in the Nginx configuration
-FIND=$(sudo grep "error_page 404" /etc/nginx/sites-available/default)
-
-# If the custom 404 error page doesn't exist, create it and add it to the Nginx configuration
-if [[ -z $FIND ]]; then
-    echo "$ERROR_MSG" | sudo tee /var/www/html/custom_404.html
-    sudo sed -i "40i $ERROR_PAGE" /etc/nginx/sites-available/default
-fi
-
-# Restart the Nginx service to apply the changes
-sudo service nginx restart
+# Start the Nginx service
+sudo service nginx start
