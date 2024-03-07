@@ -19,5 +19,8 @@ if ! grep -q 'listen 80;' /etc/nginx/sites-available/default; then
     sudo sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
 fi
 
+rm /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+
 # Restart Nginx to apply the changes
 sudo systemctl restart nginx
