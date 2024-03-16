@@ -17,3 +17,4 @@ This project is part of the DevOpsNetworkSysAdmin curriculum. The main objective
 As part of this project, a detailed blog post will be written explaining the entire process. The blog post will cover all the topics mentioned in the learning objectives.
 
 Check this out: [A Technical Journey Through the Web: What Happens When You Type https://www.google.com and Press Enter?](https://medium.com/@mohannadabdo21/a-technical-journey-through-the-web-what-happens-when-you-type-https-www-google-com-7f11ccbbc8c2)
+![Journey Diagram](https://imgur.com/TLsSbBV)
