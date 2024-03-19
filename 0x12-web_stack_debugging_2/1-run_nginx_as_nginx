@@ -14,8 +14,8 @@ chmod 600 /etc/nginx/nginx.conf
 sudo find /etc/nginx -type f -name "*.conf" -exec sed -i "s/user .*;/user nginx;/g" {} \;
 
 # Change nginx configuration to listen on port 8080
-sudo sed -i 's/listen 80 default_server;/listen 8080 default_server;/g' /etc/nginx/sites-available/default
-sudo sed -i 's/listen [::]:80 default_server;/listen [::]:8080 default_server;/g' /etc/nginx/sites-available/default
+sudo sed -i '/listen 80 default_server;/a\    listen 8080 default_server;' /etc/nginx/sites-available/default
+sudo sed -i '/listen \[::\]:80 default_server;/a\    listen [::]:8080 default_server;' /etc/nginx/sites-available/default
 
 # Check if port 8080 is open on UFW, if not, open it
 #if ! sudo ufw status | grep -q '8080/tcp'
