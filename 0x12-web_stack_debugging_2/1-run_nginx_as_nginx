@@ -2,9 +2,9 @@
 # Reconfigure Nginx server
 
 # Check if the nginx user exists and create it if it doesn't
-#if ! id -u nginx > /dev/null 2>&1; then
-#    sudo adduser --system --no-create-home --shell /bin/false --group --disabled-login nginx
-#fi
+if ! id -u nginx > /dev/null 2>&1; then
+    sudo adduser --system --no-create-home --shell /bin/false --group --disabled-login nginx
+fi
 
 sudo service nginx stop
 
