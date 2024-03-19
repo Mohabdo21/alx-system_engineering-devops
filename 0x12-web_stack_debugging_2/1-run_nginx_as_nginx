@@ -32,4 +32,4 @@ if service --status-all | grep -Fq 'apache2'; then
     done
 fi
 #pkill apache2
-#sudo -u nginx service nginx restart
+sudo -u nginx service nginx restart
