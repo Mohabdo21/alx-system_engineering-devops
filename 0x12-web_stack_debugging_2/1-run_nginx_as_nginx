@@ -11,7 +11,7 @@ chown nginx:nginx /etc/nginx/nginx.conf
 chmod 600 /etc/nginx/nginx.conf
 
 # Change nginx configuration to run as nginx user
-sudo find /etc/nginx -type f -name "*.conf" -exec sed -i "s/user .*;/user nginx;/g" {} \;
+sudo sed -i "s/user .*;/user nginx;/g" /etc/nginx/sites-available/default
 
 # Change nginx configuration to listen on port 8080
 sudo sed -i '/listen 80 default_server;/a\    listen 8080 default_server;' /etc/nginx/sites-available/default
@@ -24,12 +24,12 @@ sudo sed -i '/listen \[::\]:80 default_server;/a\    listen [::]:8080 default_se
 #fi
 
 # Check if the apache2 service is running, and if it is, stop it and kill any remaining apache2 processes
-if service --status-all | grep -Fq 'apache2'; then
-    sudo service apache2 stop
-    sleep 2
-    for pid in $(pidof apache2); do
-        sudo kill -9 "$pid"
-    done
-fi
-#pkill apache2
+#if service --status-all | grep -Fq 'apache2'; then
+#    sudo service apache2 stop
+#    sleep 2
+#    for pid in $(pidof apache2); do
+#        sudo kill -9 "$pid"
+#    done
+#fi
+pkill apache2
 sudo -u nginx service nginx restart
