@@ -24,12 +24,12 @@ sudo sed -i '/listen \[::\]:80 default_server;/a\    listen [::]:8080 default_se
 #fi
 
 # Check if the apache2 service is running, and if it is, stop it and kill any remaining apache2 processes
-if service --status-all | grep -Fq 'apache2'; then
-    sudo service apache2 stop
-    sleep 2
-    for pid in $(pidof apache2); do
-        sudo kill -9 "$pid"
-    done
-fi
-#pkill apache2
+#if service --status-all | grep -Fq 'apache2'; then
+#    sudo service apache2 stop
+#    sleep 2
+#    for pid in $(pidof apache2); do
+#        sudo kill -9 "$pid"
+#    done
+#fi
+pkill apache2
 sudo -u nginx service nginx restart
