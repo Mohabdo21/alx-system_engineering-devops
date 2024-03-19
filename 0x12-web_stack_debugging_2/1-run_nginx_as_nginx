@@ -24,7 +24,7 @@ if service --status-all | grep -Fq 'apache2'; then
     sudo service apache2 stop
     sleep 2
     for pid in $(pidof apache2); do
-        sudo kill -9 $pid
+        sudo kill -9 "$pid"
     done
 fi
 
