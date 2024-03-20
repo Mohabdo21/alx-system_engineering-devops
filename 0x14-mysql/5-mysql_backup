@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script backs up and compress all databases
+
+current_date=$(date +"%Y-%m-%d")
+com_file_name="$current_date.tar.gz"
+
+mysqldump --all-databases -u root --password="$1" > "backup.sql"
+
+tar -czvf "$com_file_name" "backup.sql"
