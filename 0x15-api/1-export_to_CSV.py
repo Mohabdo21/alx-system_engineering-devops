@@ -22,7 +22,12 @@ def employee_todo_progress(employee_id):
         taskwriter = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         for task in tasks:
             taskwriter.writerow(
-                [employee_id, user["name"], task["completed"], task["title"]]
+                [
+                    employee_id,
+                    user["username"],
+                    task["completed"],
+                    task["title"]
+                    ]
             )
 
 
