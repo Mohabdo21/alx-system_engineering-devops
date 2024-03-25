@@ -27,7 +27,7 @@ def employee_todo_progress(employee_id):
         task_list.append(task_dict)
 
     with open(f"{employee_id}.json", "w") as jsonfile:
-        json.dump({employee_id: task_list}, jsonfile)
+        json.dump({employee_id: task_list}, jsonfile, indent=2)
 
 
 if __name__ == "__main__":
