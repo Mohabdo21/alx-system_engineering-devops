@@ -9,7 +9,6 @@ import requests
 import sys
 
 
-
 def employee_todo_progress(employee_id):
     """Fetches TODO progress for a given employee ID & writes it to CSV file"""
     user = requests.get(
