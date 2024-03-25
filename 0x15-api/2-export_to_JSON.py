@@ -23,7 +23,7 @@ def employee_todo_progress(employee_id):
         task_dict = {}
         task_dict["task"] = task["title"]
         task_dict["completed"] = task["completed"]
-        task_dict["username"] = user["name"]
+        task_dict["username"] = user["username"]
         task_list.append(task_dict)
 
     with open(f"{employee_id}.json", "w") as jsonfile:
