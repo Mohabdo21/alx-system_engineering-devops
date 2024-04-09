@@ -12,6 +12,12 @@ import requests
 def top_ten(subreddit):
     """
     Prints the titles of the first 10 hot posts listed for a given subreddit
+
+    Parameters:
+    subreddit (str): The name of the subreddit.
+
+    Returns:
+    None
     """
     headers = {
         "User-Agent": (
