@@ -7,7 +7,7 @@ If the subreddit is invalid or does not exist, the function return 0.
 """
 
 
-import requests
+from requests import get
 
 
 def number_of_subscribers(subreddit):
@@ -22,7 +22,7 @@ def number_of_subscribers(subreddit):
             )
     }
 
-    response = requests.get(
+    response = get(
         url,
         headers=headers,
         allow_redirects=False,
