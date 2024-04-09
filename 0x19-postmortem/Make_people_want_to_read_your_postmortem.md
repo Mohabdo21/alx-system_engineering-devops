@@ -1,3 +1,5 @@
+![Hide!!](hide.jpg)
+
 **Issue Summary:**
 
 On April 7, 2024, from 10:00 AM to 12:30 PM (GMT+04:00), our primary **MySQL** database decided to take an unscheduled vacation. This resulted in approximately 35% of our users experiencing the digital equivalent of molasses when attempting to access our **Django** web application. The root cause was a misconfiguration in the **MySQL Replication** process, which we've since lovingly dubbed "The Great Replication Rebellion."
