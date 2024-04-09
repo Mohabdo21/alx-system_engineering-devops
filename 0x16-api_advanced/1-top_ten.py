@@ -19,8 +19,9 @@ def top_ten(subreddit):
             "Gecko/20100101 Firefox/124.0"
         )
     }
+    url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
     response = requests.get(
-        "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit),
+        url,
         headers=headers,
         allow_redirects=False,
     )
