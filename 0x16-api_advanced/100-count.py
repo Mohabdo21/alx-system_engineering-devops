@@ -8,11 +8,10 @@ If subreddit not valid prints nothing.
 """
 
 
-import re
-import sys
 from collections import Counter
-
+import re
 import requests
+import sys
 
 
 def count_words(subreddit, word_list, hot_list=[], after=None):
