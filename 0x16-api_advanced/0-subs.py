@@ -15,8 +15,8 @@ def number_of_subscribers(subreddit):
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     headers = {
         "User-Agent": (
-            "python:my_subscriber_counter:v1.0 "
-            "(by /u/Mohannad_abdo21)"
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) "
+            "Gecko/20100101 Firefox/124.0"
         )
     }
     try:
