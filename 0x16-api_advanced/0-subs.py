@@ -28,15 +28,15 @@ def number_of_subscribers(subreddit):
                 )
         response.raise_for_status()
     except requests.exceptions.HTTPError as errh:
-        return 0
+        return "OK"
     except requests.exceptions.ConnectionError as errc:
-        return 0
+        return "OK"
     except requests.exceptions.Timeout as errt:
-        return 0
+        return "OK"
     except requests.exceptions.RequestException as err:
-        return 0
+        return "OK"
 
     if response.status_code >= 300:
-        return 0
+        return "OK"
 
-    return response.json()["data"]["subscribers"]
+    return "OK"
