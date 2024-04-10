@@ -5,8 +5,6 @@ the total number of subscribers for a given subreddit.
 
 If the subreddit is invalid or does not exist, the function return 0.
 """
-
-
 import requests
 
 
