@@ -32,9 +32,9 @@ def top_ten(subreddit):
         allow_redirects=False,
     )
 
-    if response.status_code != 200 or not response.headers['content-type'].startswith('application/json'):
-        return
-
-    posts = response.json()["data"]["children"]
-    for post in posts:
-        print(post["data"]["title"])
+    if response.status_code == 200:
+        posts = response.json()["data"]["children"]
+        for post in posts:
+            print(post["data"]["title"])
+    else:
+        print(None)
