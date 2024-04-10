@@ -36,4 +36,7 @@ def number_of_subscribers(subreddit):
     except requests.exceptions.RequestException as err:
         return 0
 
+    if response.status_code >= 300:
+        return 0
+
     return response.json()["data"]["subscribers"]
