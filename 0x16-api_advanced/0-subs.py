@@ -29,7 +29,8 @@ def number_of_subscribers(subreddit):
         timeout=10
     )
 
-    if response.status_code == 200:
-        return response.json()["data"]["subscribers"]
+    if response.status_code == 404:
+        return 0
+        
+    return response.json()["data"]["subscribers"]
 
-    return 0
