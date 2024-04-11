@@ -1,6 +1,4 @@
 # Debug web_server
-class apache_config {
-
   # Ensure Apache is installed
   package { 'apache2':
     ensure => installed,
@@ -45,6 +43,3 @@ class apache_config {
     enable    => true,
     subscribe => [File_line['add_headers'], File['/var/www/html/index.html']],
   }
-}
-
-include apache_config
