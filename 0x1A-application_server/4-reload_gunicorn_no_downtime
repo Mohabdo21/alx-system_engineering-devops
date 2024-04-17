@@ -3,15 +3,16 @@
 # shellcheck disable=SC2009
 
 # Get the PID of Gunicorn master processes
-PIDS=$(ps auxf | grep gunicorn | grep ' Ss' | awk '{ print $2 }')
+# PIDS=$(ps auxf | grep gunicorn | grep ' Ss' | awk '{ print $2 }')
 
 # Check if Gunicorn is running
-if [ -z "$PIDS" ]; then
-    exit 1
-fi
-
+# if [ -z "$PIDS" ]; then
+#    exit 1
+#fi
+PID=$(pgrep gunicorn)
+kill -s HUP "$PID"
 # Send HUP signal to Gunicorn master processes
-for PID in $PIDS
-do
-    kill -HUP "$PID"
-done
+#for PID in $PIDS
+#do
+#    kill -HUP "$PID"
+#done
