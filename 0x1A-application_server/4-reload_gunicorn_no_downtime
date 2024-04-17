@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # Bash script to reload Gunicorn in a graceful way
+# shellcheck disable=SC2009
 
 # Get the PID of Gunicorn master processes
-PIDS=$(pgrep -f gunicorn)
+PIDS=$(ps auxf | grep gunicorn | grep ' Ss' | awk '{ print $2 }')
 
 # Check if Gunicorn is running
 if [ -z "$PIDS" ]; then
