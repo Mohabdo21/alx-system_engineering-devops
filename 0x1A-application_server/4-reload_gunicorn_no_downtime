@@ -4,13 +4,13 @@
 
 # Get the PID of Gunicorn master processes
 # PIDS=$(ps auxf | grep gunicorn | grep ' Ss' | awk '{ print $2 }')
-
+systemctl status gunicorn | grep -oE 'Main PID: [0-9]+' | cut -d ' ' -f3 | xargs kill -HUP
 # Check if Gunicorn is running
 # if [ -z "$PIDS" ]; then
 #    exit 1
 #fi
-PID=$(pgrep gunicorn)
-kill -s HUP "$PID"
+# PID=$(pgrep gunicorn)
+#kill -s HUP "$PID"
 # Send HUP signal to Gunicorn master processes
 #for PID in $PIDS
 #do
