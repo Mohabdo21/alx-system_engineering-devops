@@ -2,8 +2,9 @@
 # Bash script to reload Gunicorn in a graceful way
 # shellcheck disable=SC2009
 
+ps aux | grep gunicorn | grep api.v1.app:app | awk '{ print $2 }' | xargs kill -HUP
 
-sudo kill -HUP "$(ps -C gunicorn ch -o pid | head -n 1)"
+# sudo kill -HUP "$(ps -C gunicorn ch -o pid | head -n 1)"
 
 # PID=$(pgrep gunicorn | head -n 1)
 # kill -HUP "$PID"
